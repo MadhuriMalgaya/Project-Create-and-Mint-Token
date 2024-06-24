@@ -1,16 +1,18 @@
 const hre = require("hardhat");
 
 async function main() {
-  const totalSupply= 0; 
+  const initialSupply= 1000; 
   const MyToken = await hre.ethers.getContractFactory("MyToken");
-  const myToken = await MyToken.deploy(totalSupply);
+  const myToken = await MyToken.deploy(initialSupply);
   await myToken.deployed();
 
-  console.log(`MyToken deployed to ${myToken.address}`);
+  console.log(`A contract with balance of ${initialSupply} TKN deployed to ${myToken.address}`);
 }
 
 main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
-// npx hardhat run --network localhost scripts/deploy.js
+
+
+
