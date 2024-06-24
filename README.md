@@ -23,6 +23,29 @@ npx hardhat run --network localhost scripts/deploy.js
 npm run dev
 ```
 Here, I use Metamask MetaMask is a free web and mobile crypto wallet that allows users to store and swap cryptocurrencies, interact with the Ethereum blockchain ecosystem, and host a growing array of decentralized applications (dApps).
+```shell
+// MyToken.sol code
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+contract MyToken is ERC20 {
+    constructor(uint256 initialSupply) ERC20("MyToken", "TKN") {
+        _mint(msg.sender, initialSupply);
+    }
+
+    function mint(uint256 amount) public {
+        _mint(msg.sender, amount);
+    }
+
+    function burn(uint256 amount) public {
+        _burn(msg.sender, amount);
+    }
+}
+
+```
 
 ![image](https://github.com/MadhuriMalgaya/Project-Create-and-Mint-Token/assets/129099016/fb3fdb4f-303e-4687-81b3-cc096b007d85)
 
